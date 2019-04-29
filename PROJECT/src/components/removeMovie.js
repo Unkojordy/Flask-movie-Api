@@ -1,40 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import {withRouter} from "react-router";
+import { Link } from "react-router-dom"
 
-class RemoveMovie extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            removeMovie: []
-        }
+export default function RemoveMovie(props) {
+    function MovieDelete() {
+        fetch(`http://localhost:5000/remove-movie/${props.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {return response.json()})
+        .catch(err => {
+            console.log("Delete Error" + err)
+        })
     }
 
-    // componentDidMount() {
-    //     fetch(`http://localhost:5000/movie/${id}`, {
-    //         method: "DETELE",
-    //         headers: {
-    //             "accepts": "application.json",
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //     .then(response => {return response.json()})
-    //     .then(data => {this.setState({removeMovie: data})})
-    //     .catch(err => {
-    //         console.log("Fetch Error" + err)
-    //     })
-    // }
-
-  render() {
     return (
         <div className="">
             <h1>Remove Movie</h1>
-            <button> Delete Movie </button>
-            
+            <Link onClick={MovieDelete} to={"/"}>Delete</Link>
         </div>
     );
-  }
 }
-
-export default withRouter(RemoveMovie);

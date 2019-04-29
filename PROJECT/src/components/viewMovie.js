@@ -38,10 +38,10 @@ export default class ViewMovie extends Component {
         </div>     
         <div>
         {this.state.singleMovie[2]}
-        </div>     
+        </div>    
+        <RemoveMovie id = {this.state.singleMovie[0]}></RemoveMovie>
         <UpdateMovie ourProp = {this.state.singleMovie}></UpdateMovie>
-        <RemoveMovie />
-       
+  
       </div>
     );
   }

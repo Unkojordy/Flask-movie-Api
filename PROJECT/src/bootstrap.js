@@ -28,7 +28,6 @@ function main() {
             <Route exact path='/' component={App}/>
             <Route path='/add_movie' component={AddMovie}/>
             <Route path='/view_movie/:id' component={ViewMovie}/>
-            <Route path='/remove_movie/:id' component={RemoveMovie}/>
             <Route path='/movie_index' component={MovieIndex}/>
           </div>
         </div>
